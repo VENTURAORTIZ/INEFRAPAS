@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <style>
+
+/* Estilos generales */
+	.body{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+/* Estilos menú */
+	.menu {
+    		list-style-type: none;
+    		padding:0;
+    		margin: 0;
+    		background-color:red;
+		font-family: 'Arial';
+		font-size: 12px;
+  		}
+
+  	.menu > li {
+    		position:relative;
+		float: left;
+
+		}
+
+  	.menu > li > a {
+		display: block;
+    		color: white;
+    		padding: 10px 20px;
+    		text-decoration: none;
+  		}
+
+  	.menu > li > a:hover {
+    		background-color:black;
+		color:white;
+  		}
+
+/* Estilos del submenú */
+  	.menu li ul {
+    		display: none;
+    		position:absolute;
+    		top: 100%;
+    		left: 0;
+    		list-style-type: none;
+    		padding: 0;
+    		margin: 0;
+    		background-color: red;
+  		}
+
+  	.menu li:hover > ul {
+    		display: block;
+  		}
+
+  	.menu li ul li {
+    		width: 300px;
+  		}
+
+  	.menu li ul li a {
+    		display: block;
+    		color: white;
+    		padding: 10px;
+    		text-decoration: none;
+  		}
+
+  	.menu li ul li a:hover {
+    		background-color:black;
+		color:white;
+  		}
+
+/* Limpiar floats */
+  	.menu::after {
+    		content: "";
+    		clear: both;
+    		display: block;
+  		}
+
+ /* Estilos del icono */
+        .dropdown .icon {
+            margin-left: 5px;
+        }
+
+
+/* Estilos del pie de página */
+        footer {
+            background-color:black;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            position: fixed;
+   width: 90%;
+            bottom: 0;
+            }
+/* Nombre de la institución */
+	h1{
+	   color:black;
+	   text-align:left;
+	   padding: 0.1px;
+	}
+
+/* Pie de página*/
+	h4{
+	   background-color:black;
+	   color:white;
+	   text-align:center;
+	   padding: 30px 1px;
+	   border-radius: 4px;
+	   font-size: 13px;
+	   font-family: 'Arial';
+	}
+
+
+/* Estilo del encabezado */
+        header {
+            background-color:red;
+            color: white;
+            padding: 0.1em;
+            text-align:left;
+	    font-family: 'Arial';
+	    font-size: 12px;
+	    border-radius: 1%;
+        }
+
+ /* Estilos del carrusel */
+        .carrusel {
+            position: relative;
+  	    max-width: 30%;
+            padding: 15px 100px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 7px;
+width:100%;
+height:100%;
+        }
+
+/* Imagenes dentro del carrusel */
+        .diapositiva {
+            display: none;
+            width: 100%;
+	    border-radius: 15px;
+            padding: 10px 1px;
+	    box-shadow: 3px 0px 30px grey;
+        }
+
+/* Flechas de navegación */
+        .flecha {
+            cursor: pointer;
+            position:absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            transition: 0.3s;
+        }
+
+/* Flecha izquierda */
+        .izquierda {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+/* Flecha derecha */
+        .derecha {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+/* Mostrar flechas al pasar el ratón */
+        .flecha:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+/* Indicadores de posición */
+        .indicador {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .punto {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+/* Punto activo */
+        .activo, .punto:hover {
+            background-color: #717171;
+        }
+
+	.container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            //background-color: #f0f0f0;
+            border: 1px solid #ddd;
+	    border-radius: 10px;
+	    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+	    
+        }
+        
+        .column {
+            flex: 1;
+            margin: 0 10px;
+            text-align: center;
+        }
+        
+        .column img {
+            width: 100%;
+            height: auto;
+        }
+
+ /* Imagen */
+        .contenedor-imagen img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+/* Texto debajo de la imagen */
+        .texto-inferior {
+            background-color:white;
+            color:black;
+            padding: 15px;
+	    font-family:'Times New Roman';
+	    font-size: 18px;
+text-align: letf;
+        }
+
+/* Contenedor de cada imagen y texto */
+        .contenedor-imagen {
+            width: 300px;
+            margin: 10px;
+            text-align: center;
+            border-radius: 10px;
+            overflow: hidden;
+            //box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+
+        }
+
+
+/* Contenedor de cada imagen y texto */
+        .contenedor-institucion {
+            width: 100px;
+            margin: 1px;
+            text-align: letf;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+	    background-color:white;
+        }
+/* Texto al lado de la imagen */
+        .contenedor-derecho {
+            background-color:;
+            color:black;
+            padding: 1px;
+	    font-family: 'Times New Roman';
+	    font-size:30px;
+	    text-align: letf;
+ 	    width: 1300px;
+            margin: 10px;
+        }
+
+  /* Título con animación */
+       /* .titulo-animado { */
+		font-family: 'Times New Roman';
+		text-align: letf;
+            font-size: 35px;
+            color: #333;
+            margin-top: 20px;
+            animation: fadeIn 2s ease-in-out infinite alternate;
+        /* } */
+
+/* Animación de desvanecimiento */
+        @keyframes fadeIn {
+            from {
+                opacity: 0.2;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+	form {
+    		display: flex;
+    		flex-direction: column;
+    		gap: 15px;
+
+		}
+
+	label {
+    		font-weight: bold;
+    		color: red;
+		}
+
+	input {
+    		padding: 10px;
+    		border: 1px solid #ccc;
+    		border-radius: 10px;
+		}
+
+	button {
+		width: 70%;
+    		padding: 10px;
+    		background-color: white;
+    		color: white;
+    		border: none;
+    		border-radius: 10px;
+    		cursor: pointer;
+    		font-size: 16px;
+		margin-top:3%;
+		margin-bottom:3%;
+		box-shadow: 3px 0px 10px grey;
+		}
+
+	button:hover {
+    		background-color:white;
+		color: black;
+		border-radius: 10px;
+		box-shadow: 3px 0px 30px green;
+		transform: translateY(-10px);
+		}
+
+
+    </style>
+
+
+</head>
+<body>
+
+<header>
+<p><span id="fechaHora"></span></p>
+</header >
+
+
+<!-- Nombre de la Institución -->
+	<div class="container">
+    		<div class="contenedor-logo">
+        		<img src="imagen/sedes.jpg" alt="Imagen 11">
+    		</div>	 
+		<div class="contenedor-derecho">
+        		<div class="titulo-animado">INSTITUCIÓN EDUCATIVA FRANCISCO DE PAULA SANTANDER - BARRIO SUR</div>
+    		</div>
+	</div>
+
+ <!-- Menú de navegación -->
+    	     <ul class="menu">
+    		<li><a href="index.html">INICIO</a></li>
+
+    		<li><a href="">INSTITUCIÓN</a><ul>
+        		<li><a href="menus/reseña.html">Reseña Histórica</a></li>
+        		<li><a href="menus/emblema.html">Emblemas</a></li>
+	        	<li><a href="menus/soporte.html">Soporte Técnico</a></li>
+			<li><a href="menus/himno.html">Himno</a></li>
+        		<li><a href="menus/mision_vision.html">Misión y Visión</a></li>
+ 			<li><a href="menus/objetivos.html">Objetivos</a></li>
+        		<li><a href="menus/principios.html">Principios</a></li>
+        		<li><a href="menus/filosofia.html">Filosofía</a></li>
+			<li><a href="menus/sedes-jornadas.html">Sede y Jornadas</a></li>
+	        	<li><a href="menus/gobierno.html">Gobierno Escolar</a></li>       	
+			<li><a href="menus/rector.html">Biografía Rector</a></li>
+      		</ul></li>
+
+    		<li><a href="">GESTIÓN</a><ul>
+        	<li><a href="software.html">Académica</a></li>
+        	<li><a href="aplicaciones.html">Administrativa</a></li>
+		<li><a href="aplicaciones.html">Directiva</a></li>
+        	<li><a href="accesorios.html">Normatividad</a></li></ul></li>
+
+		<li><a href="">INFORMES</a><ul>
+        	<li><a href="software.html">Financieros</a></li>
+        	<li><a href="aplicaciones.html">Contratación</a></li>
+		<li><a href="software.html">Control Interno</a></li>
+        	<li><a href="aplicaciones.html">Encuestas</a></li>
+		<li><a href="aplicaciones.html">Informes PQR</a></li>
+        	<li><a href="accesorios.html">Rendición de Cuentas</a></li></ul></li>
+		
+		<li><a href="">ATENCIÓN AL CIUDADANO</a><ul>
+        	<li><a href="software.html">Peticiones, quejas y reclamos</a></li>
+        	<li><a href="aplicaciones.html">Manual e integración PQR</a></li>
+		<li><a href="aplicaciones.html">Contactenos</a></li>
+		<li><a href="aplicaciones.html">Preguntas frecuentes</a></li>
+        	<li><a href="accesorios.html">Glosario</a></li></ul></li>
+
+		<li><a href="">TRAMITES</a><ul>
+        	<li><a href="software.html">Software</a></li>
+        	<li><a href="aplicaciones.html">Aplicaciones</a></li>
+        	<li><a href="accesorios.html">Accesorios</a></li></ul></li>
+
+		<li><a href="">TRANSPARENCIA</a><ul>
+        	<li><a href="software.html">Organigrama</a></li>
+        	<li><a href="aplicaciones.html">Dependecias</a></li>
+		<li><a href="software.html">Directorio Institucional</a></li>
+        	<li><a href="aplicaciones.html">Directorio de Entidades</a></li>
+		<li><a href="software.html">Directorio de Agremiaciones</a></li>
+        	<li><a href="aplicaciones.html">Ley de Transparencia</a></li>
+        	<li><a href="accesorios.html">Mapa del sitio</a></li></ul></li>
+	      </ul>
+
+
+<p>Ultimos Eventos</p>
+
+	<script>
+        function actualizarFechaHora() {
+            const ahora = new Date();
+            const opciones = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric', 
+                hour: 'numeric', 
+                minute: 'numeric', 
+                second: 'numeric'
+            	};
+            	document.getElementById("fechaHora").textContent = ahora.toLocaleDateString('es-ES', opciones);
+        	}
+        	actualizarFechaHora();
+        	setInterval(actualizarFechaHora, 1000); // Actualiza cada segundo
+    	</script>
+
+<!-- Contenedor de imagen con texto debajo 1 -->
+<div class="container">
+
+    	<div class="contenedor-imagen">
+        <img src="imagen/1-imagen.jpg" alt="Imagen 1">
+    	</div>
+    	
+	<div class="contenedor-imagen">
+        <img src="imagen/2-imagen.jpg" alt="Imagen 2">
+    	</div>	
+
+	<div class="contenedor-imagen">
+        <img src="imagen/3-imagen.jpg" alt="Imagen 3">
+	</div>    	
+	
+	<div class="contenedor-imagen">
+        <img src="imagen/4-imagen.jpg" alt="Imagen 4">
+	</div>
+</div>
+
+
+<!-- Contenedor del carrusel -->
+    <div class="carrusel">
+        <img class="diapositiva" src="imagen/1-imagen.jpg" alt="Imagen 1">
+	<img class="diapositiva" src="imagen/2-imagen.jpg" alt="Imagen 2">
+        <img class="diapositiva" src="imagen/3-imagen.jpg" alt="Imagen 3">
+	<img class="diapositiva" src="imagen/4-imagen.jpg" alt="Imagen 4">
+	<img class="diapositiva" src="imagen/5-imagen.jpg" alt="Imagen 5">
+	<img class="diapositiva" src="imagen/6-imagen.jpg" alt="Imagen 6">
+    <img class="diapositiva" src="imagen/7-imagen.jpg" alt="Imagen 7">
+	<img class="diapositiva" src="imagen/8-imagen.jpg" alt="Imagen 8">
+	<img class="diapositiva" src="imagen/9-imagen.jpg" alt="Imagen 9">
+		
+        <!-- Flechas de navegación -->
+        <a class="flecha izquierda" onclick="cambiarDiapositiva(-1)">&#10094;</a>
+        <a class="flecha derecha" onclick="cambiarDiapositiva(1)">&#10095;</a>
+    </div>  
+
+  
+    <!-- Indicadores de posición -->
+    <div class="indicador">
+        <span class="punto" onclick="irDiapositiva(1)"></span> 
+        <span class="punto" onclick="irDiapositiva(2)"></span> 
+        <span class="punto" onclick="irDiapositiva(3)"></span> 
+	<span class="punto" onclick="irDiapositiva(4)"></span> 
+        <span class="punto" onclick="irDiapositiva(5)"></span> 
+        <span class="punto" onclick="irDiapositiva(6)"></span> 
+        <span class="punto" onclick="irDiapositiva(7)"></span> 
+	    <span class="punto" onclick="irDiapositiva(8)"></span> 
+        <span class="punto" onclick="irDiapositiva(9)"></span> 
+    </div>
+
+
+    <!-- JavaScript para el carrusel -->
+    <script>
+        let indiceDiapositiva = 1;
+        mostrarDiapositiva(indiceDiapositiva);
+
+        // Cambiar diapositiva
+        function cambiarDiapositiva(n) {
+            mostrarDiapositiva(indiceDiapositiva += n);
+        }
+
+        // Ir a diapositiva específica
+        function irDiapositiva(n) {
+            mostrarDiapositiva(indiceDiapositiva = n);
+        }
+
+        // Mostrar la diapositiva
+        function mostrarDiapositiva(n) {
+            let i;
+            let diapositivas = document.getElementsByClassName("diapositiva");
+            let puntos = document.getElementsByClassName("punto");
+            if (n > diapositivas.length) {indiceDiapositiva = 1}
+            if (n < 1) {indiceDiapositiva = diapositivas.length}
+            for (i = 0; i < diapositivas.length; i++) {
+                diapositivas[i].style.display = "none";  
+            }
+            for (i = 0; i < puntos.length; i++) {
+                puntos[i].className = puntos[i].className.replace(" activo", "");
+            }
+            diapositivas[indiceDiapositiva-1].style.display = "block";  
+            puntos[indiceDiapositiva-1].className += " activo";
+        }
+
+        // Cambio automático de diapositiva cada 5 segundos
+        setInterval(() => { cambiarDiapositiva(1); }, 5000);
+    </script>
+
+
+<div class="container">
+
+    	<div class="contenedor-imagen">
+        <img src="imagen/6-imagen.jpg" alt="Imagen 6">
+	<div class="texto-inferior">Estudiantes egresados, agradeciéndoles a la Universidad por hacerlos profesionales.</div>
+    	</div>
+
+	<div class="contenedor-imagen">
+        <img src="imagen/7-imagen.jpg" alt="Imagen 7">
+	<div class="texto-inferior">Estudiantes realizando actividades.</div>
+    	</div>
+
+	<div class="contenedor-imagen">
+        <img src="imagen/8-imagen.jpg" alt="Imagen 8">
+	<div class="texto-inferior">Estudiante leyendo libros en la biblioteca de la Universidad</div>
+    	</div>
+
+	<div class="contenedor-imagen">
+        <img src="imagen/9-imagen.jpg" alt="Imagen 9">
+	<div class="texto-inferior">La profesora tiene sospechas de que el estudiante se está copiando.</div>
+    	</div>
+</div>
+
+
+ <!-- Botón para ingreso a la biblioteca -->
+	<div class="container">
+		<form action="index2.php" target="_blank" " method="post">
+        	<button type="submit"><img src="imagen/logo.png" alt="Imagen 8"> <div class="texto-inferior"> INGRESAR A LA BIBLIOTECA VIRTUAL</div></button>
+    		</form>
+	</div>
+
+
+
+
+    <!-- Pie de página -->
+	<div class="container">
+        	<h4>&copy; 2024 Institución Educativa Francisco de Paula Santander. Todos los derechos reservados. </h4>
+		<h4>Email: inefrapascalamar@hotmail.com Dirección: Transv. 3 x No 44-33 Barrio Arriba </h4>
+		<h4>Municipio de San Juan Departamento de Bolívar </h4>
+		<h4>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX </h4>
+    	</div>
+</body>
+</html>

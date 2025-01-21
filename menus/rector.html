@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <style>
+
+/* Estilos generales */
+	.body{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+/* Estilos menú */
+	.menu {
+    		list-style-type: none;
+    		padding:0;
+    		margin: 0;
+    		background-color:red;
+		font-family: 'Arial';
+		font-size: 12px;
+  		}
+
+  	.menu > li {
+    		position:relative;
+		float: left;
+
+		}
+
+  	.menu > li > a {
+		display: block;
+    		color: white;
+    		padding: 10px 20px;
+    		text-decoration: none;
+  		}
+
+  	.menu > li > a:hover {
+    		background-color:black;
+		color:white;
+  		}
+
+/* Estilos del submenú */
+  	.menu li ul {
+    		display: none;
+    		position:absolute;
+    		top: 100%;
+    		left: 0;
+    		list-style-type: none;
+    		padding: 0;
+    		margin: 0;
+    		background-color: red;
+  		}
+
+  	.menu li:hover > ul {
+    		display: block;
+  		}
+
+  	.menu li ul li {
+    		width: 300px;
+  		}
+
+  	.menu li ul li a {
+    		display: block;
+    		color: white;
+    		padding: 10px;
+    		text-decoration: none;
+  		}
+
+  	.menu li ul li a:hover {
+    		background-color:black;
+		color:white;
+  		}
+
+/* Limpiar floats */
+  	.menu::after {
+    		content: "";
+    		clear: both;
+    		display: block;
+  		}
+
+ /* Estilos del icono */
+        .dropdown .icon {
+            margin-left: 5px;
+        }
+
+
+ /*Nombre de la página */
+	h1{
+	   color:black;
+	   text-align:center;
+	}
+
+/* Pie de página*/
+	h4{
+	   background-color:black;
+	   color:white;
+	   text-align:center;
+	   padding: 30px 1px;
+	   border-radius: 4px;
+	   font-size: 13px;
+	   font-family: 'Arial';
+	}
+
+
+/* Estilo del encabezado */
+        header {
+            background-color:red;
+            color: white;
+            padding: 0.1em;
+            text-align:left;
+	    font-family: 'Arial';
+	    font-size: 12px;
+	    border-radius: 1%;
+        }
+
+	.container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            //background-color: #f0f0f0;
+            border: 1px solid #ddd;
+	    border-radius: 10px;
+	    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+	    
+        }
+        
+        .column {
+            flex: 1;
+            margin: 0 10px;
+            text-align: center;
+        }
+        
+        .column img {
+            width: 100%;
+            height: auto;
+        }
+
+ /* Imagen */
+        .contenedor-imagen img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+/* Texto debajo de la imagen */
+        .texto-inferior {
+            background-color:white;
+            color:black;
+            padding: 15px;
+	    font-family:'Times New Roman';
+	    font-size: 18px;
+	    text-align: letf;
+        }
+
+/* Contenedor de cada imagen y texto */
+        .contenedor-imagen {
+            width: 300px;
+            margin: 10px;
+            text-align: center;
+            border-radius: 10px;
+            overflow: hidden;
+            //box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+
+        }
+
+
+/* Contenedor de cada imagen y texto */
+        .contenedor-institucion {
+            width: 100px;
+            margin: 1px;
+            text-align: letf;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+	    background-color:white;
+        }
+
+/* Texto al lado de la imagen */
+        .contenedor-derecho {
+            background-color:;
+            color:black;
+            padding: 1px;
+	    font-family: 'Times New Roman';
+	    font-size:30px;
+	    text-align: letf;
+ 	    width: 1300px;
+            margin: 10px;
+        }
+
+/* Texto debajo de la imagen */
+  .contenedor-parrafo {
+            background-color:white;
+            color:black;
+            padding: 1px;
+	    font-family:'Times New Roman';
+	    font-size: 18px;
+	    text-align: left;
+  width: 1300px;
+  margin: 10px;
+        }
+
+
+    </style>
+
+<script>
+        // Función para contar visitas en el navegador del usuario
+        function contarVisitas() {
+            // Obtiene el contador actual de visitas desde el localStorage
+            let visitas = localStorage.getItem('contador_visitas');
+
+            // Si no hay visitas previas, inicializa el contador en 0
+            if (visitas === null) {
+                visitas = 0;
+            }
+
+            // Incrementa el contador y guarda en localStorage
+            visitas++;
+            localStorage.setItem('contador_visitas', visitas);
+
+            // Muestra el contador en la página
+            document.getElementById('contador').innerText = visitas;
+        }
+
+        // Llama a la función cuando la página se carga
+        window.onload = contarVisitas;
+    </script>
+
+
+</head>
+<body>
+
+<header>
+<p><span id="fechaHora"></span></p>
+</header >
+
+
+<!-- Nombre de la Institución -->
+	<div class="container">
+    		<div class="contenedor-logo">
+        		<img src="../imagen/logo.jpg" alt="Imagen 11">
+    		</div>	 
+		<div class="contenedor-derecho">
+        		<div class="titulo-animado">INSTITUCIÓN EDUCATIVA FRANCISCO DE PAULA SANTANDER - BARRIO SUR</div>
+    		</div>
+	</div>
+
+ <!-- Menú de navegación -->
+    	     <ul class="menu">
+    		<li><a href="../index.html">INICIO</a></li>
+	     </ul>
+
+
+<h1>BIOGRAFÍA DEL RECTOR</h1>
+
+	<script>
+        function actualizarFechaHora() {
+            const ahora = new Date();
+            const opciones = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric', 
+                hour: 'numeric', 
+                minute: 'numeric', 
+                second: 'numeric'
+            	};
+            	document.getElementById("fechaHora").textContent = ahora.toLocaleDateString('es-ES', opciones);
+        	}
+        	actualizarFechaHora();
+        	setInterval(actualizarFechaHora, 1000); // Actualiza cada segundo
+    	</script>
+
+
+<div class="container">
+
+    	<div class="contenedor-imagen">
+        <img src="../imagen/3-imagen.jpg" alt="Imagen 6">
+	</div>
+
+	<div class="contenedor-parrafo">
+		<p>NOMBRES: Tulio Manuel</p><rb>
+		<p>APELLIDOS: Ramirez Beleño</p><rb>
+		<p>LUGAR DE NACIMIENTO: Calamar Bolívar</p><rb>
+		<p>TITULO: Licenciado en Ciencias Sociales</p><rb>
+    	</div>
+
+</div>
+
+
+ 
+
+    <!-- Pie de página -->
+	<div class="container">
+        	<h4>&copy; 2024 Institución Educativa Francisco de Paula Santander. Todos los derechos reservados. </h4>
+		<h4>Email: inefrapascalamar@hotmail.com Dirección: Transv. 3 x No 44-33 Barrio Arriba </h4>
+		<h4>Municipio de Calamar Departamento de Bolívar </h4>
+		<h4>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX </h4>
+    	</div>
+</body>
+</html>
